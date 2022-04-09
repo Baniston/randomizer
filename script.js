@@ -1,4 +1,4 @@
-let addElemForm = document.querySelector(".form-add");
+let addElemForm = document.querySelector(".form");
 let addElemInput = document.querySelector("textarea");
 let container = document.querySelector(".elements-container");
 let elements = container.children;
@@ -20,11 +20,11 @@ function showLoadScreen(time) {
 
 // Вывод "Пока пусто"
 let showEmpty = function () {
-  let empty = document.querySelector(".empty");
+  let listText = document.querySelector(".list-text");
   if (elements.length > 0) {
-    empty.classList.add("hidden");
+    listText.classList.add("hidden");
   } else {
-    empty.classList.remove("hidden");
+    listText.classList.remove("hidden");
   }
   console.log(elements, elements.length);
 };
@@ -51,7 +51,7 @@ addElemForm.addEventListener("submit", (evt) => {
   let textArr = addElemInput.value.split("\n");
   for (let j = 0; j < textArr.length; j++) {
     let newElement = elementTemplate.cloneNode(true);
-    if (addElemInput.value !== "") {
+    if (textArr[j] !== "" && !textArr[j].startsWith(" ")) {
       newElement.querySelector(".template-text").textContent = textArr[j];
       container.appendChild(newElement);
       handleDelete(newElement);
