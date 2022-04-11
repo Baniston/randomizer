@@ -14,25 +14,23 @@
       <div class="container header__container">
         <h1 class="header__title">Рандомайзер</h1>
         <button class="header__help">
-          <img class="header__help-pic" src="images/help.svg" alt="?" />
+          <img class="header__help-pic" src="images/help.svg" alt="Справка" />
         </button>
       </div>
     </header>
-
     <main>
       <section class="information">
         <div class="container information__container">
-          <div class="information__text">
+          <div class="information-text">
             Трудно сделать выбор?<br />Определите случайно из списка введенных
             значений!
           </div>
-          <div class="information__winner hidden">
-            <h2>Победитель</h2>
-            <div class="random-value"></div>
+          <div class="information-winner hidden">
+            <h2 class="information-winner__title">Победитель</h2>
+            <div class="information-winner__random-value"></div>
           </div>
         </div>
       </section>
-
       <section class="form-list">
         <div class="container form-list__container">
           <form class="form">
@@ -46,37 +44,65 @@
             ></textarea>
             <button class="form__button">Добавить</button>
           </form>
-
-          <div class="list">
-            <div class="list-text">
-              Список значений пока пуст.<br />Добавьте значения с помощью формы
-              слева!
+          <div class="list-text">
+            Список значений пока пуст.<br />Добавьте значения с помощью формы
+            слева!
+          </div>
+          <div class="list hidden">
+            <div class="list-header">
+              <div class="list-header__title">Список вариантов</div>
+              <div class="list-header__buttons">
+                <button class="list-header__random-button">
+                  Определить победителя
+                </button>
+                <button class="list-header__clear-button">Очистить</button>
+              </div>
             </div>
-            <div class="list-scroll hidden">
-              <button class="random-button">Определить победителя</button>
-              <button class="clear-button">Очистить</button>
-              <div>Список вариантов:</div>
-              <div class="elements-container"></div>
-              <template id="template">
-                <div class="template-element">
-                  <p class="template-text"></p>
-                  <button class="delete-button">X</button>
-                </div>
-              </template>
-            </div>
+            <div class="list-elements"></div>
+            <template id="template">
+              <div class="template-element">
+                <div class="template-element__text"></div>
+                <button class="template-element__button">
+                  <img
+                    class="template-element__delete-pic"
+                    src="images/delete.svg"
+                    alt="Удалить"
+                  />
+                </button>
+              </div>
+            </template>
           </div>
         </div>
       </section>
     </main>
-
     <footer class="footer">
       <div class="container footer__container">Никита Артюшин, 2022</div>
     </footer>
-
-    <div class="load-cover hidden">
-      <div class="load-cover__logo">Загрузка</div>
-    </div>
-
+    <section class="popup hidden">
+      <div class="popup-header">
+        <h2 class="popup-header__title">Справка</h2>
+        <button class="popup-header__close-button">
+          <img
+            class="popup-header__close-pic"
+            src="images/close.svg"
+            alt="Закрыть"
+          />
+        </button>
+      </div>
+      <div class="popup-description">
+        Добавить значение в список можно с помощью формы в левой части
+        приложения и кнопки «Добавить». Чтобы добавить сразу несколько значений,
+        следует вводить каждое новое значение на новой строке. Пустые значения и
+        строки, начинающиеся с пробела добавлять нельзя.<br /><br />
+        После добавления значений они появятся в списке в правой части
+        приложения. Любой из элементов списка можно удалить, нажав на иконку с
+        баком. Для выбора случайного элемента списка нажмите на кнопку
+        «Определить победителя». Победитель будет отображен в верхней части
+        приложения.
+      </div>
+    </section>
+    <div class="load-logo hidden">Загрузка</div>
+    <div class="overlay hidden"></div>
     <script src="script.js"></script>
   </body>
 </html>
